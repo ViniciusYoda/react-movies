@@ -1,13 +1,16 @@
-import { Container, MovieList. Movie } from './styles'
+import { Container, MovieList, Movie } from './styles'
 import { APIKey } from '../../config/key'
 import { useState, useEffect } from 'react'
 
 export default function Home() {
 
    const [movies, setMovies] = useState([]);
+   const image_path = 'https://image.tmdb.org/t/p/w500/'
 
    useEffect(() => {
-      fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey>}&language-en-US&page=1`)
+      fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language-en-US&page=1`)
+      .then(response => response.json())
+      .then(data => setMovies(data.results))
    }, [])
 
    return (
@@ -19,7 +22,7 @@ export default function Home() {
                return(
                   <Movie>
                      <a>
-                        <img src={movie.image_url} alt={movie.title}/>
+                        <img src={`${image_path}${movie.poster_path}`} alt={movie.title}/>
                      </a>
                      <span>{movie.title}</span>
                   </Movie>

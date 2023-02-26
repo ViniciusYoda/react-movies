@@ -7,22 +7,20 @@ export const Container = styled.div`
    }
 `
 
-export const MovieList = styled.ul `
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      column-gap: 3rem;
-      row-gap: 4rem;
-
-
+export const MovieList = styled.ul`
+   list-style: none;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   column-gap: 3rem;
+   row-gap: 4rem;
 `
 
 export const Movie = styled.li`
-      display: felx;
-      flex-direction: column;
-      align-items: center;
+   display: felx;
+   flex-direction: column;
+   align-items: center;
 
-      img {
+   img {
       width: 180px;
       border-radius: 1rem;
       margin-bottom: 2rem;
@@ -31,6 +29,7 @@ export const Movie = styled.li`
    span {
       font-weight: bold;
       font-size: 120%;
+      text-align: center;
    }
 
    a {
