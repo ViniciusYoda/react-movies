@@ -1,25 +1,18 @@
 import { Container, MovieList. Movie } from './styles'
+import { APIKey } from '../../config/key'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
 
-   const movies = [
-      {
-         title: 'ss',
-         image_irl: 'ss'
-      },
-      {
-         title: 'ss',
-         image_irl: 'ss'
-      }, 
-      {
-         title: 'ss',
-         image_url: 'ss'
-      }
-   ]
+   const [movies, setMovies] = useState([]);
+
+   useEffect(() => {
+      fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey>}&language-en-US&page=1`)
+   }, [])
 
    return (
       <Container>
-         <h1>Movies</h1>
+         <h1>Movies Popular</h1>
          <MovieList>
 
             {movies.map(movie => {
